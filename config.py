@@ -1,4 +1,3 @@
-#Module reads authentication credentials from environment variables and creates the Tweepy API object
 import tweepy
 import logging
 import os
@@ -7,8 +6,8 @@ from dotenv import load_dotenv
 load_dotenv('.env')
 logger = logging.getLogger()
 
+#Connect to twitter API
 def createAPI():
-    
     consumer_key = os.environ['CONSUMER_KEY']
     consumer_secret = os.environ['CONSUMER_SECRET']
     access_token = os.environ['ACCESS_TOKEN']

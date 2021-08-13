@@ -9,7 +9,9 @@ import time
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
+#Algo for spliting up tweet if its larger than 280 characters
 def tweetHoroscope(api, text):
+    #If tweet is greater than 280 characters
     if len(text) > 280:
         listText = []
         shortText = ""
@@ -30,14 +32,11 @@ def tweetHoroscope(api, text):
             k += (" %d/%d" % (j, lenList))
             j = j + 1
             api.update_status(k)
-
-
-
-
+    #If tweet is less than 280 characters
     if len(text) < 280:
         api.update_status(text)
 
-
+#Main module - Run this file
 def main():
     api = createAPI()
     horoscope = getHoroscope()
